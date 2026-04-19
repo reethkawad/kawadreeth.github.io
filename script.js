@@ -184,6 +184,18 @@ function renderExperience() {
   if (!list) return;
 
   list.innerHTML = experience.map(e => {
+    const flowchartHTML = e.flowchart && e.flowchart.length
+      ? `<div class="exp-flowchart">
+           <div class="exp-flowchart-label">Work areas</div>
+           <div class="exp-flowchart-nodes">
+             ${e.flowchart.map((node, i) => `
+               <span class="exp-flowchart-node ${zoneClass(e.zone)}">${node}</span>
+               ${i < e.flowchart.length - 1 ? '<span class="exp-flowchart-arrow">→</span>' : ''}
+             `).join('')}
+           </div>
+         </div>`
+      : '';
+
     const bulletsHTML = e.bullets.length
       ? `<ul class="exp-bullets">${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
       : '';
@@ -193,19 +205,25 @@ function renderExperience() {
       : '';
 
     return `
-      <div class="exp-card ${zoneClass(e.zone)}">
-        <div class="exp-header">
-          <div class="exp-left">
-            <span class="exp-company">${e.company}</span>
-            <span class="exp-role">${e.role}</span>
+      <div class="exp-entry">
+        <div class="exp-dot ${zoneClass(e.zone)}"></div>
+        <div class="exp-card ${zoneClass(e.zone)}">
+          <div class="exp-header">
+            <img src="${e.logo}" alt="${e.company}" class="exp-logo" />
+            <div class="exp-left">
+              <span class="exp-company">${e.company}</span>
+              <span class="exp-role">${e.role}</span>
+            </div>
+            <div class="exp-right">
+              <span class="exp-dates">${e.dates}</span>
+              <span class="exp-location">${e.location}</span>
+            </div>
+            <span class="zone-badge ${zoneClass(e.zone)}">${zoneLabel(e.zone)}</span>
           </div>
-          <div class="exp-right">
-            <span class="exp-dates">${e.dates}</span>
-            <span class="exp-location">${e.location}</span>
-          </div>
+          ${flowchartHTML}
+          ${bulletsHTML}
+          ${linksHTML}
         </div>
-        ${bulletsHTML}
-        ${linksHTML}
       </div>
     `;
   }).join('');
