@@ -60,10 +60,7 @@ function renderProjects() {
   if (!grid) return;
   grid.innerHTML = '';
 
-  const counts = { cleantech: 0, robotics: 0, hardware: 0 };
-
   projects.forEach(p => {
-    if (counts[p.zone] !== undefined) counts[p.zone]++;
 
     const card = document.createElement('article');
     card.className = `project-card ${zoneClass(p.zone)}`;
@@ -92,12 +89,6 @@ function renderProjects() {
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDrawer(p.id); } });
 
     grid.appendChild(card);
-  });
-
-  // Update zone portal counts
-  Object.keys(counts).forEach(zone => {
-    const el = document.getElementById(`count-${zone}`);
-    if (el) el.textContent = `${counts[zone]} project${counts[zone] !== 1 ? 's' : ''}`;
   });
 }
 

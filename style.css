@@ -274,6 +274,16 @@ section {
   margin-bottom: 3.5rem;
 }
 
+.hero-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
 .hero-filter-label {
   font-size: 0.75rem;
   font-weight: 600;
@@ -995,10 +1005,6 @@ section {
 
   .zone-icon {
     font-size: 1.25rem;
-  }
-
-  .zone-count {
-    margin-left: auto;
   }
 
   /* About */
