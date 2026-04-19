@@ -64,7 +64,7 @@ image: "assets/bridge.png",
 images: [],
 
 // monopoly
-image: "assets/monopoly.JPG",
+image: "assets/monopoly.png",
 images: [],
 
 // walkane
@@ -73,10 +73,6 @@ images: [],
 
 // alarm
 image: "assets/alarm.png",
-images: [],
-
-// strandbeest
-image: "assets/strandbeest.png",
 images: [],
 
 // kothcar
@@ -302,6 +298,7 @@ function renderExperience() {
     `;
   }).join('');
 }
+
 ```
 
 - [ ] **Step 2: Add timeline + flowchart CSS to `style.css`**

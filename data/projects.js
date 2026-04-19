@@ -8,32 +8,27 @@
 // ─────────────────────────────────────────────────────────────
 
 const projects = [
-
-  // ── ONGOING ──────────────────────────────────────────────
-
   {
     id: "vawt",
     title: "Vertical Axis Wind Turbine",
-    status: "ongoing",
     zone: "cleantech",
     image: "assets/vawt.jpg",
     images: [],
     summary: "Adaptive pitch control for a VAWT to enhance energy capture in low-wind urban environments.",
     description: "Engineering an adaptive pitch control system for a vertical axis wind turbine to enhance energy efficiency in low-wind environments. The focus is on optimizing blade design and mechanical power conversion through iterative simulation and physical testing. Key challenges include passive vs. active pitch mechanisms and maintaining structural integrity under variable loading.",
-    tags: ["Wind Energy", "Controls", "SolidWorks", "CFD", "ANSYS Fluent"],
+    tags: ["Wind Energy", "Controls", "SolidWorks"],
     links: []
   },
 
   {
     id: "dexhand",
     title: "8 DoF Robotic Hand",
-    status: "ongoing",
     zone: "robotics",
     image: "assets/dexhand.png",
     images: [],
     summary: "Dexterous robotic hand for USC's DRCL bipedal robot — tendon-driven with impact-tolerant MCP joints.",
     description: "Designing and building a robotic hand for the Dynamic and Robotic Controls Lab (DRCL) at USC, to be mounted on the bipedal robot Hector. The hand has two fingers and a thumb across 8 degrees of freedom. DIP joints are passive and linked to the actuated PIP joints via a tendon mechanism driven by N20 high-gear-ratio motors. The MCP joint uses a spring-damper system and a 20 kg·cm servo motor for high torque output and impact mitigation. The CAD shown is the current progress.",
-    tags: ["Robotics", "Mechanical Design", "Actuation", "SolidWorks", "DRCL"],
+    tags: ["Robotics", "Mechanical Design", "Actuation", "SolidWorks"],
     links: []
   },
 
@@ -131,7 +126,7 @@ const projects = [
     title: "Automated Monopoly Board",
     status: "completed",
     zone: "hardware",
-    image: "assets/monopoly.JPG",
+    image: "assets/monopoly.png",
     images: [],
     summary: "Electromechanical Monopoly board enabling human vs. bot gameplay — 1st place finish.",
     description: "Led the electro-mechanical design of a robotic Monopoly board game, collaborating with a team of six to develop a fully automated system enabling human vs. bot gameplay. Responsible for mechanism design, motor selection, PCB layout integration, and system assembly. The board handles dice rolling, piece movement, and card drawing autonomously, interfacing with a game-logic controller.",
@@ -170,19 +165,6 @@ const projects = [
   },
 
   {
-    id: "strandbeest",
-    title: "Strandbeest Model",
-    status: "completed",
-    zone: "robotics",
-    image: "assets/strandbeest.png",
-    images: [],
-    summary: "3D-printed scale model of Theo Jansen's wind-powered kinematic walking mechanism.",
-    description: "Designed and 3D printed a scaled-down functional model of Theo Jansen's Strandbeest — a wind-powered walking mechanism using a specific 13-bar linkage to convert rotational input into a smooth walking gait. The project focused on understanding complex kinematic linkages, tolerance stack-up for printed joints, and achieving smooth motion without traditional control systems.",
-    tags: ["Kinematics", "Mechanisms", "3D Printing", "Linkage Design"],
-    links: []
-  },
-
-  {
     id: "kothcar",
     title: "2-DoF Bluetooth Car",
     status: "completed",
@@ -209,7 +191,7 @@ const experience = [
     dates: "May 2025 – Aug 2025",
     location: "San Francisco, CA",
     zone: "cleantech",
-    flowchart: ["Hot-wire DAQ", "Electrolyzer Skid", "Heat Exchanger Calc", "Fuel Cell Frame", "Python Automation"],
+    flowchart: ["Thermal Conductivity DAQ", "Electrolyzer Skid", "Heat Exchanger Calc", "Fuel Cell Frame", "Python Automation"],
     bullets: [
       "Developed a transient hot-wire sensor system using Raspberry Pi DAQ, Python automation, and 3D-printed test rig to measure thermal conductivity of four metal powders (<10% uncertainty), enabling material down-selection",
       "Designed a production-ready skid for 24 electrolyzers (300 kg) with optimized manifold design for hydrogen, coolant, and water lines, balancing structural strength, minimal footprint, and serviceability",
@@ -244,7 +226,7 @@ const experience = [
     role: "Mechanical Engineering Intern",
     dates: "May 2023 – Aug 2023",
     location: "Los Angeles, CA",
-    zone: "robotics",
+    zone: "cleantech",
     flowchart: ["Chassis Optimization", "Structural Analysis", "Air Gap Control", "Simulink Model"],
     bullets: [
       "Optimized chassis weight by 30% while maintaining structural integrity through 1D and 3D structural analysis in ANSYS Mechanical and SolidWorks",
