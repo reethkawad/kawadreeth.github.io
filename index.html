@@ -1,654 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <title>Reeth Kawad - Portfolio</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7QNGKQWTZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-X9RZ4C3N2N');
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* Base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        /* Dark mode styling by default */
-        body {
-            line-height: 1.6;
-            color: #f0f0f0;
-            background-color: #222;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        h1, h2, h3 {
-            margin-bottom: 20px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        a {
-            color: #003366; /* Changed to navy blue */
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            color: #004d99; /* Darker navy blue for hover */
-        }
-        
-        /* Header styles */
-        header {
-            background-color: #333;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style-type: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            font-weight: 500;
-            padding: 5px 0;
-            position: relative;
-            color: #ffffff;
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #003366; /* Changed to navy blue */
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        /* About section */
-        .about-section {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-text {
-            flex: 1.5;
-        }
-        
-        /* Projects section */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .project-entry {
-            background-color: #333;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .project-entry:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .project-details {
-            padding: 20px;
-        }
-        
-        .project-link {
-            display: inline-block;
-            margin-top: 15px;
-            margin-right: 10px;
-            padding: 5px 15px;
-            background-color: #003366; /* Changed to navy blue */
-            color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        .project-link:hover {
-            background-color: #004d99; /* Darker navy blue for hover */
-            color: #fff;
-        }
-        
-        /* Experience section */
-        .experience-item {
-            display: flex;
-            margin-bottom: 40px;
-            background-color: #333;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .experience-logo-title {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-right: 20px;
-        }
-        
-        .company-logo {
-            width: 120px; /* Increased from 80px */
-            height: 120px; /* Increased from 80px */
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        
-        .company-title {
-            margin-top: 10px;
-            text-align: center;
-        }
-        
-        .company-name {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-        
-        .experience-details {
-            flex: 1;
-        }
-        
-        .position-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        
-        .position-title {
-            font-weight: 600;
-        }
-        
-        .position-dates {
-            color: #ccc;
-        }
-        
-        .experience-location {
-            color: #ccc;
-            margin-bottom: 10px;
-        }
-
-        /* Added for bullet points in experience */
-        .experience-details ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .experience-details li {
-            margin-bottom: 5px;
-        }
-        
-        /* Skills section */
-        #skills {
-            background-color: #1a1a1a;
-            padding: 60px 0;
-        }
-        
-        /* Contact section */
-        #contact {
-            background-color: #333;
-            color: #fff;
-            padding: 60px 0;
-        }
-        
-        .contact-link {
-            display: inline-block;
-            margin-right: 20px;
-            color: #ffffff; /* Changed to navy blue */
-        }
-        
-        .contact-link:hover {
-            color: #004d99; /* Darker navy blue for hover */
-        }
-        
-        /* Typing effect */
-        .typing-effect {
-            border-right: 3px solid #003366; /* Changed to navy blue */
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #003366 } /* Changed to navy blue */
-        }
-        
-        /* Section heading styles */
-        .section-heading {
-            font-size: 28px;
-            margin-bottom: 30px;
-        }
-        
-        .sub-heading {
-            font-size: 24px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-        
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-            }
-            
-            .about-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .experience-item {
-                flex-direction: column;
-            }
-            
-            .experience-logo-title {
-                margin-bottom: 20px;
-                margin-right: 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reeth Kawad — Mechanical Engineer</title>
+  <meta name="description" content="Portfolio of Reeth Kawad — Mechanical Engineer specializing in hardware test, controls, and simulation. Cleantech, robotics, and dynamic systems." />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9RZ4C3N2N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X9RZ4C3N2N');
+  </script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <h1><span class="typing-effect">Reeth Kawad</span></h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════ -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#">RK</a>
+
+      <nav id="main-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀</span>
+          <span class="icon-moon" aria-hidden="true">☽</span>
+        </button>
+        <button id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-inner">
+      <p class="hero-label">Mechanical Engineer</p>
+      <h1 class="hero-name">
+        <span id="typing-target"></span><span class="cursor" aria-hidden="true">|</span>
+      </h1>
+      <p class="hero-tagline">Hardware Test &nbsp;·&nbsp; Controls &nbsp;·&nbsp; Simulation</p>
+      <p class="hero-sub">Clean Energy &nbsp;·&nbsp; Robotics &nbsp;·&nbsp; Dynamic Systems</p>
+
+      <p class="hero-filter-label">Explore by industry</p>
+      <div class="zone-portals" role="group" aria-label="Filter projects by industry zone">
+        <button class="zone-portal zone-cleantech" data-zone="cleantech" aria-pressed="false">
+          <span class="zone-icon" aria-hidden="true">⚡</span>
+          <span class="zone-name">Cleantech</span>
+          <span class="zone-count" id="count-cleantech">— projects</span>
+        </button>
+        <button class="zone-portal zone-robotics" data-zone="robotics" aria-pressed="false">
+          <span class="zone-icon" aria-hidden="true">🤖</span>
+          <span class="zone-name">Robotics</span>
+          <span class="zone-count" id="count-robotics">— projects</span>
+        </button>
+        <button class="zone-portal zone-hardware" data-zone="hardware" aria-pressed="false">
+          <span class="zone-icon" aria-hidden="true">🔧</span>
+          <span class="zone-name">Hardware</span>
+          <span class="zone-count" id="count-hardware">— projects</span>
+        </button>
+      </div>
+
+      <a href="#projects" class="scroll-cue" aria-label="Scroll to projects">
+        <span>↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════ -->
+  <section id="about" aria-label="About me">
+    <div class="section-inner">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-layout">
+        <img src="assets/profile_picture.png" alt="Reeth Kawad" class="about-photo" />
+        <div class="about-text">
+          <p>I'm a <strong>Mechanical Engineer</strong> at USC, building and testing systems at the intersection of cleantech, controls, and hardware. My work spans hydrogen fuel cell skid design, robotic hand actuation, wind turbine aerodynamics, and autonomous systems — with hands-on experience in both simulation and fabrication.</p>
+          <p>I'm drawn to roles in <strong>hardware test, controls engineering, and simulation</strong> — where I can bridge physical systems with analytical models. I'm especially interested in clean energy and dynamic systems like robotics.</p>
+          <p>Outside the lab: basketball, hiking, and dancing with the <strong>USC Trojan Bhangra Club</strong>.</p>
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <section id="about">
-        <div class="container about-section">
-            <!-- Replace with your actual profile image path -->
-            <img src="assets/profile_picture.png" alt="Reeth" class="profile-image">
-            <div class="about-text">
-                <h2>About Me</h2>
-                <p>Welcome! I'm Reeth Kawad, a driven <strong>Mechanical Engineer</strong>. My passion lies in leading innovative projects that design, <strong>build</strong>, and test
-                cutting-edge machines. With a keen focus on <strong>clean tech, power systems</strong> and utilizing smart materials for
-                engineering solutions, I am committed to driving positive change in the world. Beyond my technical pursuits,
-                I actively engage in various interests such as playing basketball, hiking and dancing with 
-                the USC Trojan Bhangra Club. Explore my website to witness how I propel engineering innovation 
-                towards a brighter future!!</p>
-            </div>
-        </div>
-    </section>
+  <!-- ═══════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════ -->
+  <section id="projects" aria-label="Projects">
+    <div class="section-inner">
+      <h2 class="section-title">Projects</h2>
 
-    <section id="projects">
-        <div class="container">
-                <h2 class="sub-heading">Ongoing Projects</h2>
-                <div class="project-grid">
-                    <div class="project-entry">
-                        <!-- Replace with your actual project image path -->
-                        <img src="assets/vawt.jpg" alt="Vertical Axis Wind Turbine" class="project-image">
-                        <div class="project-details">
-                            <h3>Vertical Axis Wind Turbine</h3>
-                            <p>Engineering an adaptive pitch control for vertical axis wind turbine to enhance energy efficiency in low-wind environments, focusing on optimizing blade design and mechanical power conversion.</p>
-                        </div>
-                    </div>
-                    <div class="project-entry">
-                        <!-- Replace with your actual project image path -->
-                        <img src="assets/dexhand.png" alt="8-DOF Robotic Hand" class="project-image">
-                        <div class="project-details">
-                            <h3>8 DoF Robotic Hand </h3>
-                            <p> The image is the CAD progress so far. Making a robotic hand for the Dynamic and Robotic Controls Lab (DRCL). It has two fingers and a thumb. The DIP's are passive linked to PIP joints, which are actuated using N20 high geared motors. The MCP joint has a spring damper and a 20kgcm servo motor for high torque and impact mitigation. The hand will be attached to a bipedal, Hector of DRCL. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h2 class="section-heading">My Projects</h2>
-            <div class="project-grid">
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/windtunnel.jpg" alt="Wind tunnel" class="project-image"> 
-                    <!-- <img src="assets/WaterRocketPhoto.JPG" alt="Water Rocket Flight Optimization" class="project-image">-->
-                    <div class="project-details">
-                        <h3>Blowdown Wind Tunnel – Flow Straightener Validation</h3>
-                        <p>The primary objective was to validate effectiveness of honeycomb in achieving laminar flow conditions. Designed and built a 1.5-meter-long blowdown wind tunnel with a 100×100 mm² test section, primarily using plywood and acrylic. A custom 3D-printed PLA honeycomb was integrated as a flow straightener. Through velocity profile analysis, the system demonstrated flow stabilization with Reynolds numbers up to 2000—successfully confirming the honeycomb's role in minimizing turbulence.</p>
-                        <!--<a href="https://github.com/kawadreeth/FireWarden" class="project-link" target="_blank">MATLAB Code</a>-->
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/firewarden.jpg" alt="Wildfire Defense Water Pump" class="project-image"> 
-                    <!-- <img src="assets/WaterRocketPhoto.JPG" alt="Water Rocket Flight Optimization" class="project-image">-->
-                    <div class="project-details">
-                        <h3>Wildfire Defense Water Pump</h3>
-                        <p>Developed a water pump system, by devising a MATLAB calculator for wildfire protection by integrating a pool-based spray, with manual activation, enhancing fire safety for homes in the Palisades area.</p>
-                        <a href="https://github.com/kawadreeth/FireWarden" class="project-link" target="_blank">MATLAB Code</a>
-                        <a href="https://firewarden.ai/" class="project-link" target="_blank">Website</a>
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/fsaecar.jpg" alt="FSAE car" class="project-image">
-                    <div class="project-details">
-                        <h3>FSAE Projects</h3>
-                        <p><li>Aerodynamic parts: Front Wing fixtures, Undertray mounts</li>
-                            <li>CFD on Ansys Fluent - developing an automated script for fault tolerant meshing of half car and full car (volume and surface mesh) </li>
-                            <li>Tools: Yaw probe with +- 20 degrees, toe angle alignment tool </li>
-                            <li>Manufacturing: CNC Composite molds for different wing elements, CNC milling differetial mounts, bracket mounts, 3D print Nylon 12 CF molds, aerodynamic wings, ergonomics (steering wheel, pedal, foot rest) </li>
-                        <!--<a href="https://github.com/kawadreeth/Water-rocket" class="project-link" target="_blank">MATLAB Code</a>-->
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/WaterRocketPhoto.JPG" alt="Water Rocket Flight Optimization" class="project-image">
-                    <div class="project-details">
-                        <h3>Water Rocket Flight Optimization</h3>
-                        <p>Developed a MATLAB simulation to optimize a water rocket's air-to-water ratio, starting pressure, and parachute surface area, enhancing flight efficiency through mathematical modelling.</p>
-                        <a href="https://github.com/kawadreeth/Water-rocket" class="project-link" target="_blank">MATLAB Code</a>
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/drone.png" alt="Drone CAD & Structural Analysis" class="project-image">
-                    <div class="project-details">
-                        <h3>Drone CAD & Structural Analysis</h3>
-                        <p>Designed a drone using Siemens NX CAD and conducted structural simulations using FEA and MBD, optimizing aerodynamics and durability for improved flight performance.</p>
-                        <a href="https://drive.google.com/file/d/1575TLy4KyPg1gU15R2b3k51xjANRKEK5/view?usp=sharing" class="project-link" target="_blank">Report</a>
+      <div class="filter-tabs" role="tablist" aria-label="Filter by zone">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-tab zone-cleantech" data-filter="cleantech" role="tab" aria-selected="false">⚡ Cleantech</button>
+        <button class="filter-tab zone-robotics"  data-filter="robotics"  role="tab" aria-selected="false">🤖 Robotics</button>
+        <button class="filter-tab zone-hardware"  data-filter="hardware"  role="tab" aria-selected="false">🔧 Hardware</button>
+      </div>
 
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/bridge.png" alt="Truss Bridge Optimization" class="project-image">
-                    <div class="project-details">
-                        <h3>Truss Bridge Optimization</h3>
-                        <p>Modeled and analyzed truss bridge forces using parametric MATLAB simulations, optimizing geometry for structural efficiency and validating assumptions through prototyping and load cell testing.</p>
-                        <a href="https://docs.google.com/presentation/d/1VA9FRjOtLrg-IBJXrp6H5tkmueV63h8G1FIaLfHCmkg/edit?usp=sharing" class="project-link" target="_blank">Presentation</a>
+      <div id="projects-grid" class="projects-grid" role="list"></div>
+    </div>
+  </section>
 
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/monopoly.JPG" alt="Automated Monopoly Board" class="project-image">
-                    <div class="project-details">
-                        <h3>Automated Monopoly Board</h3>
-                        <p>Led the electro-mechanical design of a robotic Monopoly boardgame, collaborating with a team of six to develop a system enabling human vs. bot gameplay.</p>
-                        <a href="https://docs.google.com/presentation/d/1Zo48lH4bJnZnYgCcLSDdN7ztpLo-VSnM-4SqTbtNbzY/edit?usp=sharing" class="project-link" target="_blank">Presentation</a>
+  <!-- ═══════════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════════ -->
+  <section id="experience" aria-label="Work experience">
+    <div class="section-inner">
+      <h2 class="section-title">Experience</h2>
+      <div id="experience-list" class="experience-list"></div>
+    </div>
+  </section>
 
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/walkane_real.png" alt="Walkane" class="project-image">
-                    <div class="project-details">
-                        <h3>Walkane – Collapsible Walker-Cane Hybrid</h3>
-                        <p>Engineered a hybrid walker-cane with a collapsible design to improve stability during transitions from stairs to flat ground, enhancing mobility and winning 2nd place in the competition.</p>
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/alarm.png" alt="Smart Alarm Clock" class="project-image">
-                    <div class="project-details">
-                        <h3>Smart Alarm Clock with REM Sleep Monitoring</h3>
-                        <p>Built a smart alarm clock with a pulse meter and Arduino-based DAQ to track BPM, leveraging sleep cycle data to wake users during optimal REM sleep, improving rest efficiency and winning 1st place in the competition.</p>
-                        <a href="https://github.com/anuhashah/USCHackIoT2023" class="project-link" target="_blank">Code</a>
+  <!-- ═══════════════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════════════ -->
+  <section id="skills" aria-label="Skills">
+    <div class="section-inner">
+      <h2 class="section-title">Skills</h2>
+      <div id="skills-tree" class="skills-tree"></div>
+    </div>
+  </section>
 
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/strandbeest.png" alt="Strandbeest Model" class="project-image">
-                    <div class="project-details">
-                        <h3>Strandbeest Model</h3>
-                        <p>Designed and 3D printed a scaled-down functional model of Theo Jansen's Strandbeest, demonstrating mechanical linkages and wind-powered locomotion.</p>
-                    </div>
-                </div>
-                <div class="project-entry">
-                    <!-- Replace with your actual project image path -->
-                    <img src="assets/kothcar.jpg" alt="2-DOF Bluetooth-Controlled Car" class="project-image">
-                    <div class="project-details">
-                        <h3>2-DOF Bluetooth-Controlled Car</h3>
-                        <p>Designed and built a two-degree-of-freedom (2-DOF) car with Bluetooth control, integrating Arduino, and motor drivers to enable real-time remote navigation.</p>
-                    </div>
-                </div>
-            </div>
-            
-            
-    </section>
+  <!-- ═══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="contact" aria-label="Contact">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-sub">Open to hardware test, controls, and simulation roles in cleantech and robotics.</p>
+      <div class="contact-links">
+        <a href="mailto:kawad@usc.edu" class="contact-item">
+          <span class="contact-icon" aria-hidden="true">✉</span>
+          kawad@usc.edu
+        </a>
+        <a href="https://www.linkedin.com/in/reethkawad/" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-icon" aria-hidden="true">in</span>
+          LinkedIn
+        </a>
+        <a href="https://github.com/kawadreeth" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-icon" aria-hidden="true">⌥</span>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-heading">Experience</h2>
-            <div class="experience-item">
-                <div class="experience-logo-title">
-                    <!-- Replace with your actual company logo path -->
-                    <img src="assets/lumindt.JPG" alt="Baum Family Makerspace Logo" class="company-logo">
-                    <div class="company-title">
-                        <h3 class="company-name">Lumindt Labs</h3>
-                    </div>
-                </div>
-                <div class="experience-details" style="margin-left: 20px;">
-                    <div class="position-details">
-                        <p class="position-title">Mechanical Engineering Intern</p>
-                        <p class="position-dates">May 2025 - August 2025</p>
-                    </div>
-                    <p class="experience-location">San Francisco, CA</p>
-                    <ul>
-                        <li>Developed a transient hot-wire sensor system using Raspberry Pi DAQ, Python automation, and 3D-printed rig to measure thermal conductivity of four metal powders (<10% uncertainty), enabling material down-selection</li>
-                        <li>Designed a production-ready skid for 24 electrolyzers (300 kg) with optimized manifold design for hydrogen, coolant, and water lines, balancing structural strength, minimal footprint, and serviceability </li>
-                        <li>Built an Excel-based heat exchanger and coolant loop calculator to evaluate effects of coolant composition on specific heat, efficiency, and operating thresholds, informing system-level thermal management.</li>
-                        <li>Designed and assembled a modular 250 kW fuel cell frame (200 kg capacity) using SolidWorks CAD, weldment design, structural calculations, and machining, combining a welded steel base with carbon steel tubing and 8020 extrusions</li>
-                        <li>Programmed Python modules for DAQ, relay boards, and automation workflows, streamlining powder activation testing and hydrogen gas handling</li>
-                        <li>Supported process engineering by selecting BOP components (pumps, valves, etc.), fabricating custom adapters, and conducting ASME standard-based preliminary stress analyses, ensuring compatibility and compliance</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="experience-item">
-                <div class="experience-logo-title">
-                    <!-- Replace with your actual company logo path -->
-                    <img src="assets/machining.jpg" alt="Baum Family Makerspace Logo" class="company-logo">
-                    <div class="company-title">
-                        <h3 class="company-name">Baum Family Makerspace</h3>
-                    </div>
-                </div>
-                <div class="experience-details" style="margin-left: 20px;">
-                    <div class="position-details">
-                        <p class="position-title">Student Worker</p>
-                        <p class="position-dates">September 2023 - Present</p>
-                    </div>
-                    <p class="experience-location">Los Angeles, CA</p>
-                    <ul>
-                        <li>Program and operate Haas CNC, ProtoTRAK, Omax waterjet, and laser cutter to manufacture GD&T precision components, interpret technical drawings, and optimize toolpaths in MasterCam</li>
-                        <li>Fabricated 100+ 3D printed prototypes (PLA, resin, carbon fiber), and supporting 12+ design teams and 80+ research labs to design for manufacturing (DFM), like side wing airfoil elements of the Formula SAE car</li>
-                    </ul>
-                </div>
-            </div>
+  <!-- ═══════════════════════════════════════════
+       DRAWER OVERLAY + SLIDE-OUT DRAWER
+  ═══════════════════════════════════════════ -->
+  <div id="drawer-overlay" class="drawer-overlay" aria-hidden="true"></div>
 
-            <div class="experience-item">
-                <div class="experience-logo-title">
-                    <!-- Replace with your actual company logo path -->
-                    <img src="assets/tutrchassis.jpg" alt="TuTr Hyperloop Chassis" class="company-logo">
-                    <div class="company-title">
-                        <h3 class="company-name">TuTr Hyperloop</h3>
-                    </div>
-                </div>
-                <div class="experience-details" style="margin-left: 20px;">
-                    <div class="position-details">
-                        <p class="position-title">Mechanical Engineer Intern</p>
-                        <p class="position-dates">May 2023 - August 2023</p>
-                    </div>
-                    <p class="experience-location">Los Angeles, CA</p>
-                    <ul>
-                        <li>Optimized chassis weight by 30%, while maintaining structural integrity, by conducting 1D & 3D structural analysis in ANSYS Mechanical and Solidworks</li>
-                        <li>Developed & simulated an air gap control system (±6mm tolerance) for a linear induction motor, using MATLAB Simulink</li>
-                    </ul>
-                </div>
-            </div>
+  <aside id="project-drawer" class="project-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project details">
+    <div class="drawer-inner">
+      <button id="drawer-close" class="drawer-close" aria-label="Close project details">✕</button>
+      <div id="drawer-content"></div>
+    </div>
+  </aside>
 
-            <div class="experience-item">
-                <div class="experience-logo-title">
-                    <!-- Replace with your actual company logo path -->
-                    <img src="assets/robotframe.jpg" alt="Robotic Locomotion and Dynamic Lab Logo" class="company-logo">
-                    <div class="company-title">
-                        <h3 class="company-name">Robotic Locomotion and Dynamic Lab USC</h3>
-                    </div>
-                </div>
-                <div class="experience-details" style="margin-left: 20px;">
-                    <div class="position-details">
-                        <p class="position-title">Mechanical Design Engineer</p>
-                        <p class="position-dates">January 2023 - May 2023</p>
-                    </div>
-                    <p class="experience-location">Los Angeles, CA</p>
-                    <ul>
-                        <li>Devised a 4-link leg mechanism, including a custom holding frame, for a force-sensing direct drive quadrupedal robot honed for complex terrain navigation, using Solidworks</li>
-                        <li>Built a test stand for motor feedback by deploying linear actuators and stepper motors for terrain adaptability research</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-logo-title">
-                    <!-- Replace with your actual company logo path -->
-                    <img src="assets/wind blade.png" alt="National Institute of Wind Energy Logo" class="company-logo">
-                    <div class="company-title">
-                        <h3 class="company-name">National Institute of Wind Energy (NIWE)</h3>
-                    </div>
-                </div>
-                <div class="experience-details" style="margin-left: 20px;">
-                    <div class="position-details">
-                        <p class="position-title">Wind Blade Intern</p>
-                        <p class="position-dates">June 2022 - August 2022</p>
-                    </div>
-                    <p class="experience-location">Chennai, India</p>
-                    <ul>
-                        <li>Designed, analyzed, and optimized a wind turbine blade of length 5.7m, using Solidworks and ANSYS Mechanical, as a research project for the certification department to identify different load cases</li>
-                    </ul>
-                    <a href="https://github.com/kawadreeth/Wind-turbine-blade/blob/main/Niwe%20Internship%20Report.pdf" class="project-link" target="_blank">Code</a>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-heading">Skills & Relevant Courses</h2>
-            <p><strong>CAD & Simulation:</strong> SolidWorks, Fusion 360, MasterCam, ANSYS (Mechanical, Fluent), TotalSim</p>
-            <p><strong>Manufacturing & Prototyping:</strong> CNC Milling, Lathing, 3D Printing, Composite Layup, FEA, Machining</p>
-            <p><strong>Programming:</strong> Python, MATLAB/Simulink, LabVIEW, Arduino
-            <p><strong>Relevant Courses:</strong> Dynamic Systems (MATLAB), Heat Transfer, Microelectromechanical Systems (MEMS), Accelerated Programming in Python, Mechanics of Materials and Structures, Computer-Aided Engineering, Measurement and Instrumentation</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-heading">Contact</h2>
-            <p>Email: <a href="mailto:kawad@usc.edu" class="contact-link" target="_blank">kawad@usc.edu</a></p>
-            <a href="https://www.linkedin.com/in/reethkawad/" class="contact-link" target="_blank">LinkedIn</a>
-            <a href="https://github.com/kawadreeth" class="contact-link" target="_blank">Github</a>
-        </div>
-    </section>
-
-    <script>
-        // Typing effect animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const typingElement = document.querySelector('.typing-effect');
-            const text = typingElement.textContent;
-            typingElement.textContent = '';
-            
-            function typeWriter(text, i, fnCallback) {
-                if (i < text.length) {
-                    typingElement.textContent = text.substring(0, i + 1);
-                    
-                    setTimeout(function() {
-                        typeWriter(text, i + 1, fnCallback);
-                    }, 100);
-                } else if (typeof fnCallback == 'function') {
-                    setTimeout(fnCallback, 700);
-                }
-            }
-            
-            typeWriter(text, 0, function() {
-                typingElement.style.borderRight = 'none';
-            });
-        });
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+  <script src="data/projects.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
