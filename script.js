@@ -196,11 +196,11 @@ function renderExperience() {
          </div>`
       : '';
 
-    const bulletsHTML = e.bullets.length
+    const bulletsHTML = e.bullets?.length
       ? `<ul class="exp-bullets">${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
       : '';
 
-    const linksHTML = e.links.length
+    const linksHTML = e.links?.length
       ? `<div class="exp-links">${e.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="exp-link">${l.label} ↗</a>`).join('')}</div>`
       : '';
 

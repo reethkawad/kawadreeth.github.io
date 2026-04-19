@@ -272,7 +272,7 @@ const experience = [
   {
     id: "niwe",
     company: "National Institute of Wind Energy (NIWE)",
-    logo: "assets/wind blade.png",
+    logo: "assets/wind_blade.png",
     role: "Wind Blade Intern",
     dates: "Jun 2022 – Aug 2022",
     location: "Chennai, India",
