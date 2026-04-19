@@ -332,12 +332,6 @@ section {
   font-size: 0.9rem;
 }
 
-.zone-count {
-  font-size: 0.72rem;
-  color: var(--zone);
-  font-weight: 500;
-}
-
 /* Scroll cue */
 .scroll-cue {
   display: flex;
