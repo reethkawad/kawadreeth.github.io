@@ -60,10 +60,7 @@ function renderProjects() {
   if (!grid) return;
   grid.innerHTML = '';
 
-  const counts = { cleantech: 0, robotics: 0, hardware: 0 };
-
   projects.forEach(p => {
-    if (counts[p.zone] !== undefined) counts[p.zone]++;
 
     const card = document.createElement('article');
     card.className = `project-card ${zoneClass(p.zone)}`;
@@ -92,12 +89,6 @@ function renderProjects() {
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDrawer(p.id); } });
 
     grid.appendChild(card);
-  });
-
-  // Update zone portal counts
-  Object.keys(counts).forEach(zone => {
-    const el = document.getElementById(`count-${zone}`);
-    if (el) el.textContent = `${counts[zone]} project${counts[zone] !== 1 ? 's' : ''}`;
   });
 }
 
@@ -193,28 +184,46 @@ function renderExperience() {
   if (!list) return;
 
   list.innerHTML = experience.map(e => {
-    const bulletsHTML = e.bullets.length
+    const flowchartHTML = e.flowchart && e.flowchart.length
+      ? `<div class="exp-flowchart">
+           <div class="exp-flowchart-label">Work areas</div>
+           <div class="exp-flowchart-nodes">
+             ${e.flowchart.map((node, i) => `
+               <span class="exp-flowchart-node ${zoneClass(e.zone)}">${node}</span>
+               ${i < e.flowchart.length - 1 ? '<span class="exp-flowchart-arrow">→</span>' : ''}
+             `).join('')}
+           </div>
+         </div>`
+      : '';
+
+    const bulletsHTML = e.bullets?.length
       ? `<ul class="exp-bullets">${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
       : '';
 
-    const linksHTML = e.links.length
+    const linksHTML = e.links?.length
       ? `<div class="exp-links">${e.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="exp-link">${l.label} ↗</a>`).join('')}</div>`
       : '';
 
     return `
-      <div class="exp-card ${zoneClass(e.zone)}">
-        <div class="exp-header">
-          <div class="exp-left">
-            <span class="exp-company">${e.company}</span>
-            <span class="exp-role">${e.role}</span>
+      <div class="exp-entry">
+        <div class="exp-dot ${zoneClass(e.zone)}"></div>
+        <div class="exp-card ${zoneClass(e.zone)}">
+          <div class="exp-header">
+            <img src="${e.logo}" alt="${e.company}" class="exp-logo" />
+            <div class="exp-left">
+              <span class="exp-company">${e.company}</span>
+              <span class="exp-role">${e.role}</span>
+            </div>
+            <div class="exp-right">
+              <span class="exp-dates">${e.dates}</span>
+              <span class="exp-location">${e.location}</span>
+            </div>
+            <span class="zone-badge ${zoneClass(e.zone)}">${zoneLabel(e.zone)}</span>
           </div>
-          <div class="exp-right">
-            <span class="exp-dates">${e.dates}</span>
-            <span class="exp-location">${e.location}</span>
-          </div>
+          ${flowchartHTML}
+          ${bulletsHTML}
+          ${linksHTML}
         </div>
-        ${bulletsHTML}
-        ${linksHTML}
       </div>
     `;
   }).join('');
