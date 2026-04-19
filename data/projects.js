@@ -209,6 +209,7 @@ const experience = [
     dates: "May 2025 – Aug 2025",
     location: "San Francisco, CA",
     zone: "cleantech",
+    flowchart: ["Hot-wire DAQ", "Electrolyzer Skid", "Heat Exchanger Calc", "Fuel Cell Frame", "Python Automation"],
     bullets: [
       "Developed a transient hot-wire sensor system using Raspberry Pi DAQ, Python automation, and 3D-printed test rig to measure thermal conductivity of four metal powders (<10% uncertainty), enabling material down-selection",
       "Designed a production-ready skid for 24 electrolyzers (300 kg) with optimized manifold design for hydrogen, coolant, and water lines, balancing structural strength, minimal footprint, and serviceability",
@@ -228,6 +229,7 @@ const experience = [
     dates: "Sep 2023 – Present",
     location: "Los Angeles, CA",
     zone: "hardware",
+    flowchart: ["CNC / Waterjet", "3D Printing", "DFM Guidance"],
     bullets: [
       "Program and operate Haas CNC, ProtoTRAK, Omax waterjet, and laser cutter to manufacture GD&T precision components, interpret technical drawings, and optimize toolpaths in MasterCam",
       "Fabricated 100+ 3D printed prototypes (PLA, resin, carbon fiber), supporting 12+ design teams and 80+ research labs with design for manufacturing (DFM) guidance, including FSAE wing elements"
@@ -243,6 +245,7 @@ const experience = [
     dates: "May 2023 – Aug 2023",
     location: "Los Angeles, CA",
     zone: "robotics",
+    flowchart: ["Chassis Optimization", "Structural Analysis", "Air Gap Control", "Simulink Model"],
     bullets: [
       "Optimized chassis weight by 30% while maintaining structural integrity through 1D and 3D structural analysis in ANSYS Mechanical and SolidWorks",
       "Developed and simulated an air gap control system (±6 mm tolerance) for a linear induction motor using MATLAB Simulink"
@@ -258,6 +261,7 @@ const experience = [
     dates: "Jan 2023 – May 2023",
     location: "Los Angeles, CA",
     zone: "robotics",
+    flowchart: ["Leg Mechanism", "Holding Frame", "Motor Test Stand"],
     bullets: [
       "Devised a 4-link leg mechanism with custom holding frame for a force-sensing direct-drive quadrupedal robot designed for complex terrain navigation, using SolidWorks",
       "Built a motor feedback test stand using linear actuators and stepper motors to support terrain adaptability research"
@@ -273,6 +277,7 @@ const experience = [
     dates: "Jun 2022 – Aug 2022",
     location: "Chennai, India",
     zone: "cleantech",
+    flowchart: ["Blade CAD", "Structural Analysis", "Load Case Optimization"],
     bullets: [
       "Designed, analyzed, and optimized a 5.7 m wind turbine blade using SolidWorks and ANSYS Mechanical as a research project for the certification department, identifying critical load cases"
     ],
